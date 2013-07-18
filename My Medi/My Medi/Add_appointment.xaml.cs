@@ -7,6 +7,9 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using SQLite;
+using Windows.Storage;
+using System.IO;
 
 namespace My_Medi
 {
@@ -20,5 +23,18 @@ namespace My_Medi
         {
 
         }
+
+       private void btnOK_Click(object sender, RoutedEventArgs e)
+      {
+    //        SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
+
+    //        Person person = new Person
+    //        {
+    //            Name = "Matteo",
+    //            Surname = "Pagani"
+    //        };
+
+    //        await conn.InsertAsync(person);
+       }
     }
 }

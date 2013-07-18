@@ -9,6 +9,7 @@ using Microsoft.Phone.Shell;
 using My_Medi.Resources;
 using My_Medi.ViewModels;
 
+
 namespace My_Medi
 {
     public partial class App : Application

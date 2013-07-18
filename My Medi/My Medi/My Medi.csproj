@@ -50,7 +50,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>Bin\x86\Debug</OutputPath>
     <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE; USE_WP8_NATIVE_SQLITE</DefineConstants>
     <NoStdLib>true</NoStdLib>
@@ -130,6 +130,7 @@
     </DesignData>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="mymedi.sqlite" />
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
@@ -179,9 +180,18 @@
     <Reference Include="Community.CsharpSqlite.WP7">
       <HintPath>..\packages\wp7sqlite.0.1.1\lib\sl4-windowsphone71\Community.CsharpSqlite.WP7.dll</HintPath>
     </Reference>
+    <Reference Include="CS.Windows.Controls">
+      <HintPath>..\packages\WindowsPhoneControls.0.3.0\lib\sl4-windowsphone71\CS.Windows.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\packages\WPtoolkit.4.2013.06.11\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="WatermarkTextbox">
+      <HintPath>..\packages\WatermarkTextbox.1.0.2\lib\WatermarkTextbox.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsPhoneWatermarkTextBoxControl">
+      <HintPath>..\..\..\..\Desktop\WatermarkTextBoxExample\WatermarkTextBoxExample\Lib\WindowsPhoneWatermarkTextBoxControl.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +204,12 @@
     <SDKReference Include="SQLite.WP80, Version=3.7.17">
       <Name>SQLite for Windows Phone</Name>
     </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\sqlite-net-wp8\Sqlite.vcxproj">
+      <Project>{59B35F6C-E062-4F0E-88D8-13F3F82A24F3}</Project>
+      <Name>Sqlite</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

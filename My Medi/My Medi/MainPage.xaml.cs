@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Controls.Primitives;
+using SQLite;
+using Windows.Storage;
 
 namespace My_Medi
 {
@@ -51,6 +53,13 @@ namespace My_Medi
             popup.Child = control;
             popup.IsOpen = true;
         }
+
+        //private async void CreateDatabase()
+        //{
+        //    SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
+        //    await conn.CreateTableAsync<Person>();
+        //}
+ 
 
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()

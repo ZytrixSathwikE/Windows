@@ -17,11 +17,14 @@ using SQLite;
 using Windows.Storage;
 using System.IO;
 using System.Diagnostics;
+using System.Collections.ObjectModel;
+
 
 namespace My_Medi
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        
         // Constructor
         public MainPage()
         {
@@ -29,23 +32,34 @@ namespace My_Medi
             
             InitializeComponent();
             CreateDatabase();
+            this.Loaded += new RoutedEventHandler(MainPage_Loaded);
+            
 
             // Set the data context of the listbox control to the sample data
             DataContext = App.ViewModel;
-            
-
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
+
         }
 
-        // Load data for the ViewModel Items
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        public void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             if (!App.ViewModel.IsDataLoaded)
             {
                 App.ViewModel.LoadData();
             }
         }
+            
+      
+
+        // Load data for the ViewModel Items
+        //protected override void OnNavigatedTo(NavigationEventArgs e)
+        //{
+        //    if (!App.ViewModel.IsDataLoaded)
+        //    {
+        //        App.ViewModel.LoadData();
+        //    }
+        //}
         private async void CreateDatabase()
         {
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
@@ -62,23 +76,26 @@ namespace My_Medi
             Add_appointment control = new Add_appointment();
             popup.Child = control;
             popup.IsOpen = true;
+            //control.btnOK.Click += (s, args) =>
+            //{
+            //    SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
+
+            //    Person person = new Person
+            //    {
+            //        DoctorName = control.watermarkTextBox.Text,
+            //        Date = DateTime.Now
+            //        //Date = datepick.Value.Value
+            //    };
+
+            //    await conn.InsertAsync(person);
+
+            //    Popup popup = new Popup();
+            //    (this.Parent as Popup).IsOpen = false;
+            //};
         }
 
-        private async void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
 
-            var query = conn.Table<Person>();
-            var result = await query.ToListAsync();
-            foreach (var item in result)
-            {
-                Debug.WriteLine(string.Format("{0}: {1} {2}", item.ID, item.DoctorName, item.Date));
-               // MessageBox.Show(string.Format("{0}: {1} {2}", item.ID, item.DoctorName, item.Date));
-            }
-            //MessageBox.Show((string.Format("{0}: {1} {2}", item.ID, item.DoctorName, item.Date));
-        }
        
-
  
 
         // Sample code for building a localized ApplicationBar

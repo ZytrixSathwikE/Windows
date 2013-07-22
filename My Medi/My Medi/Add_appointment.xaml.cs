@@ -17,15 +17,25 @@ namespace My_Medi
 {
     public partial class Add_appointment : UserControl
     {
+
         public Add_appointment()
         {
+
             InitializeComponent();
+            
         }
         private void DatePicker_ValueChanged(object sender, DateTimeValueChangedEventArgs e)
         {
 
         }
-
+        public void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+           // App.ViewModel.Items.Clear();
+            if (!App.ViewModel.IsDataLoaded)
+            {
+                App.ViewModel.LoadData();
+            }
+        }
        private async void btnOK_Click(object sender, RoutedEventArgs e)
       {
           SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
@@ -33,13 +43,20 @@ namespace My_Medi
           Person person = new Person
           {
               DoctorName = watermarkTextBox.Text,
-              Date = datepick.Value.Value
+              Date=DateTime.Now
+              //Date = datepick.Value.Value
           };
 
           await conn.InsertAsync(person);
-
+          this.Loaded += new RoutedEventHandler(MainPage_Loaded);
+         
+              
+          
+          //this.Loaded += new RoutedEventHandler(MainPage_Loaded);
           Popup popup = new Popup();
+          
            (this.Parent as Popup).IsOpen = false;
+          
           
        }
     }

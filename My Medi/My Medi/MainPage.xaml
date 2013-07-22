@@ -69,14 +69,14 @@
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0,0,0,17">
-                                <TextBlock Text="txt1" TextWrapping="Wrap" Foreground="Black"/>
-                                <TextBlock Text="txt2" TextWrapping="Wrap" Margin="12,-6,12,0" Foreground="Black"/>
+                                    <TextBlock Text="{Binding Linetwo}" TextWrapping="Wrap" Foreground="Black"/>
+                                    <TextBlock Text="{Binding Linethree}" TextWrapping="Wrap" Margin="12,-6,12,0" Foreground="Black"/>
                             </StackPanel>
                         </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>
                     <Button Content="" HorizontalAlignment="Left" Margin="0,62,0,0" VerticalAlignment="Top" Width="480" Height="87" Click="Button_Click_1"/>
-                   
+                    
                 </Grid>
             </phone:PivotItem>
 

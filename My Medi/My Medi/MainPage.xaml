@@ -76,7 +76,7 @@
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>
                     <Button Content="" HorizontalAlignment="Left" Margin="0,62,0,0" VerticalAlignment="Top" Width="480" Height="87" Click="Button_Click_1"/>
-
+                   
                 </Grid>
             </phone:PivotItem>
 

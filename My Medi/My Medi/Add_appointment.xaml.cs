@@ -10,6 +10,8 @@ using Microsoft.Phone.Shell;
 using SQLite;
 using Windows.Storage;
 using System.IO;
+//using System.Windows.Controls.Primitives;
+using System.Windows.Controls.Primitives;
 
 namespace My_Medi
 {
@@ -24,17 +26,21 @@ namespace My_Medi
 
         }
 
-       private void btnOK_Click(object sender, RoutedEventArgs e)
+       private async void btnOK_Click(object sender, RoutedEventArgs e)
       {
-    //        SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
+          SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
 
-    //        Person person = new Person
-    //        {
-    //            Name = "Matteo",
-    //            Surname = "Pagani"
-    //        };
+          Person person = new Person
+          {
+              DoctorName = watermarkTextBox.Text,
+              Date = datepick.Value.Value
+          };
 
-    //        await conn.InsertAsync(person);
+          await conn.InsertAsync(person);
+
+          Popup popup = new Popup();
+           (this.Parent as Popup).IsOpen = false;
+          
        }
     }
 }

@@ -11,10 +11,12 @@ using My_Medi.Resources;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Shapes;
+//using System.Windows.Shapes;
 using System.Windows.Controls.Primitives;
 using SQLite;
 using Windows.Storage;
+using System.IO;
+using System.Diagnostics;
 
 namespace My_Medi
 {
@@ -24,10 +26,13 @@ namespace My_Medi
         public MainPage()
         {
             
+            
             InitializeComponent();
+            CreateDatabase();
 
             // Set the data context of the listbox control to the sample data
             DataContext = App.ViewModel;
+            
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
@@ -40,6 +45,11 @@ namespace My_Medi
             {
                 App.ViewModel.LoadData();
             }
+        }
+        private async void CreateDatabase()
+        {
+            SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
+            await conn.CreateTableAsync<Person>();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -54,11 +64,21 @@ namespace My_Medi
             popup.IsOpen = true;
         }
 
-        //private async void CreateDatabase()
-        //{
-        //    SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
-        //    await conn.CreateTableAsync<Person>();
-        //}
+        private async void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
+
+            var query = conn.Table<Person>();
+            var result = await query.ToListAsync();
+            foreach (var item in result)
+            {
+                Debug.WriteLine(string.Format("{0}: {1} {2}", item.ID, item.DoctorName, item.Date));
+               // MessageBox.Show(string.Format("{0}: {1} {2}", item.ID, item.DoctorName, item.Date));
+            }
+            //MessageBox.Show((string.Format("{0}: {1} {2}", item.ID, item.DoctorName, item.Date));
+        }
+       
+
  
 
         // Sample code for building a localized ApplicationBar

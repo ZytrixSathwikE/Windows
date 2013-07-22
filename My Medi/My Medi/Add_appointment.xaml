@@ -16,7 +16,7 @@
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
         <StackPanel x:Name="Root"  Width="380" Height="380" Background="Red">
             <TextBlock Text="Check In Details" Margin="20,20,0,20" Foreground="AntiqueWhite" />
-            <my1:WatermarkTextBox Name="watermarkTextBox" Height="72" Margin="0,128,0,407" WatermarkText="Enter a text..." HorizontalAlignment="Left" Width="350" />
+            <my1:WatermarkTextBox Name="watermarkTextBox" Height="72" Margin="0,0,0,0" WatermarkText="Doctor..." HorizontalAlignment="Left" Width="350" />
             <local:DatePicker x:Name="datepick" ValueChanged="DatePicker_ValueChanged" Margin="0,0,0,0" ValueStringFormat="{}{0:yyyy-MM-dd}"   />
             <Button x:Name="btnOK" Content="Submit" Margin="0,60,0,0" Click="btnOK_Click"/>
 

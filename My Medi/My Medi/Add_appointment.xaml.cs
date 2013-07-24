@@ -26,16 +26,18 @@ namespace My_Medi
         }
         private void DatePicker_ValueChanged(object sender, DateTimeValueChangedEventArgs e)
         {
+         //this.Visibility = Visibility.Collapsed; 
+            
 
         }
-        public void MainPage_Loaded(object sender, RoutedEventArgs e)
-        {
-           // App.ViewModel.Items.Clear();
-            if (!App.ViewModel.IsDataLoaded)
-            {
-                App.ViewModel.LoadData();
-            }
-        }
+        //public void MainPage_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    // App.ViewModel.Items.Clear();
+        //    if (!App.ViewModel.IsDataLoaded)
+        // 
+        //        App.ViewModel.LoadData();
+        //    }
+        //}
        private async void btnOK_Click(object sender, RoutedEventArgs e)
       {
           SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
@@ -43,21 +45,37 @@ namespace My_Medi
           Person person = new Person
           {
               DoctorName = watermarkTextBox.Text,
-              Date=DateTime.Now
+              Date=datepick.ValueString,
+              Time= timepick.ValueString
+              
               //Date = datepick.Value.Value
           };
 
           await conn.InsertAsync(person);
-          this.Loaded += new RoutedEventHandler(MainPage_Loaded);
-         
-              
-          
           //this.Loaded += new RoutedEventHandler(MainPage_Loaded);
-          Popup popup = new Popup();
-          
-           (this.Parent as Popup).IsOpen = false;
+
+        //My_Medi.ViewModels.MainViewModel medi = new ViewModels.MainViewModel();
+        
+          //this.Loaded += new RoutedEventHandler(MainPage_Loaded);
+        Popup popup = new Popup();
+          //medi.LoadData();
+          (this.Parent as Popup).IsOpen = false;
           
           
        }
+
+       private void timepick_ValueChanged(object sender, DateTimeValueChangedEventArgs e)
+       {
+
+       }
+
+       private void btncancel_Click(object sender, RoutedEventArgs e)
+       {
+           (this.Parent as Popup).IsOpen = false;
+       }
+
+       
+
+       
     }
 }

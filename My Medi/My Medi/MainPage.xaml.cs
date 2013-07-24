@@ -32,7 +32,7 @@ namespace My_Medi
             
             InitializeComponent();
             CreateDatabase();
-            this.Loaded += new RoutedEventHandler(MainPage_Loaded);
+            //this.Loaded += new RoutedEventHandler(MainPage_Loaded);
             
 
             // Set the data context of the listbox control to the sample data
@@ -42,24 +42,24 @@ namespace My_Medi
 
         }
 
-        public void MainPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            if (!App.ViewModel.IsDataLoaded)
-            {
-                App.ViewModel.LoadData();
-            }
-        }
-            
-      
-
-        // Load data for the ViewModel Items
-        //protected override void OnNavigatedTo(NavigationEventArgs e)
+        //public void MainPage_Loaded(object sender, RoutedEventArgs e)
         //{
         //    if (!App.ViewModel.IsDataLoaded)
         //    {
         //        App.ViewModel.LoadData();
         //    }
         //}
+            
+      
+
+         //Load data for the ViewModel Items
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (!App.ViewModel.IsDataLoaded)
+            {
+                App.ViewModel.LoadData();
+            }
+        }
         private async void CreateDatabase()
         {
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);

@@ -13,7 +13,9 @@ namespace My_Medi
 
         public string DoctorName { get; set; }
 
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
+
+        public string Time { get; set; }
 
         public string Prescription { get; set; }
 
@@ -21,10 +23,10 @@ namespace My_Medi
 
         public string Audio { get; set; }
 
-        public override string ToString()
-        {
-            return Date.ToShortDateString() + " " + Date.ToShortTimeString();
-        }
+        //public override string ToString()
+        //{
+        //    return Date.ToShortDateString() + " " + Time.ToShortTimeString();
+        //}
        
     }
 }

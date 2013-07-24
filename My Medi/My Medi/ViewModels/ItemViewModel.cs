@@ -80,7 +80,7 @@ namespace My_Medi.ViewModels
 
         public string Linetwo { get; set; }
 
-        public DateTime Linethree { get; set; }
+        public string Linethree { get; set; }
         
         public string LineFour { get; set; }
 
@@ -88,10 +88,12 @@ namespace My_Medi.ViewModels
 
         public string Linesix { get; set; }
 
-        public override string ToString()
-        {
-            return Linethree.ToShortDateString() + " " + Linethree.ToShortTimeString();
-        }
+        public string Lineseven { get; set; }
+
+        //public override string ToString()
+        //{
+        //    return Linethree.ToShortDateString() + " " + Lineseven.ToShortTimeString();
+        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(String propertyName)

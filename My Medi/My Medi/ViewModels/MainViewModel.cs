@@ -95,7 +95,7 @@ namespace My_Medi.ViewModels
             foreach (var appointment in result)
             {
                 //this.Items.Add(new ItemViewModel() { Lineone = appointment.ID });
-                this.Items.Add(new ItemViewModel(){ Lineone=appointment.ID,Linetwo=appointment.DoctorName,Linethree=appointment.Date});
+                this.Items.Add(new ItemViewModel(){ Lineone=appointment.ID,Linetwo=appointment.DoctorName,Linethree=appointment.Date,Lineseven=appointment.Time});
             }
             this.IsDataLoaded = true;
         }

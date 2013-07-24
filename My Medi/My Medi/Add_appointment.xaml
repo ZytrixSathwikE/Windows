@@ -15,11 +15,12 @@
     
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
         <StackPanel x:Name="Root"  Width="380" Height="380" Background="Red">
-            <TextBlock Text="Check In Details" Margin="20,20,0,20" Foreground="AntiqueWhite" />
+            <TextBlock Text="Check In Details" Margin="0,0,0,0" Foreground="AntiqueWhite" />
             <my1:WatermarkTextBox Name="watermarkTextBox" Height="72" Margin="0,0,0,0" WatermarkText="Doctor..." HorizontalAlignment="Left" Width="350" />
-            <local:DatePicker x:Name="datepick" ValueChanged="DatePicker_ValueChanged" Margin="0,0,0,0" ValueStringFormat="{}{0:yyyy-MM-dd}"   />
-            <Button x:Name="btnOK" Content="Submit" Margin="0,60,0,0" Click="btnOK_Click"/>
-
+            <local:DatePicker x:Name="datepick" ValueChanged="DatePicker_ValueChanged" Margin="0,0,0,0" ValueStringFormat="{}{0:yyyy-MM-dd}"  />
+            <local:TimePicker x:Name="timepick" ValueChanged="timepick_ValueChanged" ValueStringFormat="{}{0:T}"/>
+            <Button x:Name="btnOK" Content="Submit" Margin="0,0,0,0" Click="btnOK_Click"/>
+            <Button x:Name="btncancel" Content="Cancel" Margin="0,0,0,0" Click="btncancel_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>

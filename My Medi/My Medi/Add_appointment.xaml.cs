@@ -8,74 +8,66 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using SQLite;
-using Windows.Storage;
 using System.IO;
-//using System.Windows.Controls.Primitives;
-using System.Windows.Controls.Primitives;
+using Windows.Storage;
 
 namespace My_Medi
 {
-    public partial class Add_appointment : UserControl
+    public partial class Add_appointment : PhoneApplicationPage
     {
-
         public Add_appointment()
         {
-
             InitializeComponent();
-            
         }
+
+
         private void DatePicker_ValueChanged(object sender, DateTimeValueChangedEventArgs e)
         {
-         //this.Visibility = Visibility.Collapsed; 
+           
+        }
+       
+
+        private async void btnOK_Click(object sender, RoutedEventArgs e)
+        {
+            SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
+
+            Person person = new Person
+            {
+                DoctorName = watermarkTextBox.Text,
+                Date = datepick.ValueString,
+                Time = timepick.ValueString
+
+                
+            };
+
+            await conn.InsertAsync(person);
+
+            //My_Medi.ViewModels.MainViewModel veiw = new ViewModels.MainViewModel();
+
+            //veiw.LoadData();
+            DataContext = App.ViewModel;
+            App.ViewModel.Items.Clear();
+            App.ViewModel.LoadData();            
             
 
+            NavigationService.GoBack();
+            
+            
+
+
         }
-        //public void MainPage_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    // App.ViewModel.Items.Clear();
-        //    if (!App.ViewModel.IsDataLoaded)
-        // 
-        //        App.ViewModel.LoadData();
-        //    }
-        //}
-       private async void btnOK_Click(object sender, RoutedEventArgs e)
-      {
-          SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
 
-          Person person = new Person
-          {
-              DoctorName = watermarkTextBox.Text,
-              Date=datepick.ValueString,
-              Time= timepick.ValueString
-              
-              //Date = datepick.Value.Value
-          };
+        private void timepick_ValueChanged(object sender, DateTimeValueChangedEventArgs e)
+        {
 
-          await conn.InsertAsync(person);
-          //this.Loaded += new RoutedEventHandler(MainPage_Loaded);
+        }
 
-        //My_Medi.ViewModels.MainViewModel medi = new ViewModels.MainViewModel();
-        
-          //this.Loaded += new RoutedEventHandler(MainPage_Loaded);
-        Popup popup = new Popup();
-          //medi.LoadData();
-          (this.Parent as Popup).IsOpen = false;
-          
-          
-       }
 
-       private void timepick_ValueChanged(object sender, DateTimeValueChangedEventArgs e)
-       {
-
-       }
-
-       private void btncancel_Click(object sender, RoutedEventArgs e)
-       {
-           (this.Parent as Popup).IsOpen = false;
-       }
-
-       
-
-       
+        private void btncancel_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+        }
+    
     }
+
 }

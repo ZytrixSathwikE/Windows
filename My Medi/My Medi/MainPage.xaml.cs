@@ -32,34 +32,36 @@ namespace My_Medi
             
             InitializeComponent();
             CreateDatabase();
-            //this.Loaded += new RoutedEventHandler(MainPage_Loaded);
-            
 
+
+            this.Loaded += new RoutedEventHandler(MainPage_Loaded);
             // Set the data context of the listbox control to the sample data
             DataContext = App.ViewModel;
+            
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
 
         }
 
-        //public void MainPage_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    if (!App.ViewModel.IsDataLoaded)
-        //    {
-        //        App.ViewModel.LoadData();
-        //    }
-        //}
-            
-      
-
-         //Load data for the ViewModel Items
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        public void MainPage_Loaded(object sender, RoutedEventArgs e)
+        //public void MainPage_Loaded(NavigationEventArgs e)
         {
             if (!App.ViewModel.IsDataLoaded)
             {
                 App.ViewModel.LoadData();
             }
         }
+            
+      
+
+         //Load data for the ViewModel Items
+        //protected override void OnNavigatedTo(NavigationEventArgs e)
+        //{
+        //    if (!App.ViewModel.IsDataLoaded)
+        //    {
+        //        App.ViewModel.LoadData();
+        //    }
+        //}
         private async void CreateDatabase()
         {
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
@@ -68,30 +70,10 @@ namespace My_Medi
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //NavigationService.Navigate(new Uri("/Add_appointment.xaml", UriKind.Relative));
-            Popup popup = new Popup();
-            popup.Height = 300;
-            popup.Width = 400;
-            popup.VerticalOffset = 100;
-            Add_appointment control = new Add_appointment();
-            popup.Child = control;
-            popup.IsOpen = true;
-            //control.btnOK.Click += (s, args) =>
-            //{
-            //    SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
+            NavigationService.Navigate(new Uri("/Add_appointment.xaml", UriKind.Relative));
 
-            //    Person person = new Person
-            //    {
-            //        DoctorName = control.watermarkTextBox.Text,
-            //        Date = DateTime.Now
-            //        //Date = datepick.Value.Value
-            //    };
-
-            //    await conn.InsertAsync(person);
-
-            //    Popup popup = new Popup();
-            //    (this.Parent as Popup).IsOpen = false;
-            //};
+           // this.Loaded += new RoutedEventHandler(MainPage_Loaded);
+            
         }
 
 

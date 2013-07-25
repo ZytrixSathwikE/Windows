@@ -1,26 +1,46 @@
-﻿<UserControl x:Class="My_Medi.Add_appointment"
+﻿<phone:PhoneApplicationPage
+    x:Class="My_Medi.Add_appointment"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" 
     
     xmlns:my1="clr-namespace:System.Windows.Controls;assembly=WindowsPhoneWatermarkTextBoxControl"
-    mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignHeight="380" d:DesignWidth="380">
-    
-    
-    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
-        <StackPanel x:Name="Root"  Width="380" Height="380" Background="Red">
-            <TextBlock Text="Check In Details" Margin="0,0,0,0" Foreground="AntiqueWhite" />
-            <my1:WatermarkTextBox Name="watermarkTextBox" Height="72" Margin="0,0,0,0" WatermarkText="Doctor..." HorizontalAlignment="Left" Width="350" />
-            <local:DatePicker x:Name="datepick" ValueChanged="DatePicker_ValueChanged" Margin="0,0,0,0" ValueStringFormat="{}{0:yyyy-MM-dd}"  />
-            <local:TimePicker x:Name="timepick" ValueChanged="timepick_ValueChanged" ValueStringFormat="{}{0:T}"/>
-            <Button x:Name="btnOK" Content="Submit" Margin="0,0,0,0" Click="btnOK_Click"/>
-            <Button x:Name="btncancel" Content="Cancel" Margin="0,0,0,0" Click="btncancel_Click"/>
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" >
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/background1.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="" Style="{StaticResource PhoneTextNormalStyle}"/>
+            
         </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBlock Text="Check In Details"  Margin="0,0,0,0" Foreground="Black" />
+            <my1:WatermarkTextBox Name="watermarkTextBox" Height="80" Margin="10,79,10,532" WatermarkText="Doctor..." HorizontalAlignment="Left" Width="446" Background="#cb202d" />
+            <local:DatePicker x:Name="datepick" ValueChanged="DatePicker_ValueChanged" Margin="10,182,10,440" ValueStringFormat="{}{0:yyyy-MM-dd}" Background="#cb202d"  />
+            <local:TimePicker x:Name="timepick" ValueChanged="timepick_ValueChanged" ValueStringFormat="{}{0:T}" Margin="10,286,10,330" Background="#cb202d"/>
+            <Button x:Name="btnOK" Content="Submit" Margin="0,401,0,207" Click="btnOK_Click" Background="#cb202d"/>
+            <Button x:Name="btncancel" Content="Cancel" Margin="0,509,0,99" Click="btncancel_Click" Background="#cb202d"/>
+        </Grid>
     </Grid>
-</UserControl>
+
+</phone:PhoneApplicationPage>

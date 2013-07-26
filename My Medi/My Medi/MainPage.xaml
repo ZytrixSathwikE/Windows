@@ -65,7 +65,7 @@
  
                     <Image Grid.Row="0" Source="/Assets/add-a-appointment.png" Margin="10,0,10,10"/>
                     <!--Double line list with text wrapping-->
-                <phone:LongListSelector ItemsSource="{Binding Items}" Grid.Row="1" Height="306" VerticalAlignment="Bottom">
+                <!--<phone:LongListSelector ItemsSource="{Binding Items}" Grid.Row="1" Height="306" VerticalAlignment="Bottom">
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0,0,0,17">
@@ -75,7 +75,19 @@
                                 </StackPanel>
                         </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
-                </phone:LongListSelector>
+                </phone:LongListSelector>-->
+                    <ListBox x:Name="FirstListBox"  ItemsSource="{Binding Items}" Grid.Row="1" Height="306" VerticalAlignment="Bottom" SelectionChanged="FirstListBox_SelectionChanged" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,0,0,17" >
+                                    <TextBlock Text="{Binding Linetwo}" TextWrapping="Wrap"  Foreground="Black" />
+                                    <TextBlock Text="{Binding Linethree}" TextWrapping="Wrap"  Margin="12,-6,12,0" Foreground="Black" />
+                                    <TextBlock Text="{Binding Lineseven}" TextWrapping="Wrap"  Margin="22,-6,12,0" Foreground="Black" />
+                                    <!-- <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>-->
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                     <Button Content="" HorizontalAlignment="Left" Margin="0,62,0,0" VerticalAlignment="Top" Width="480" Height="87" Click="Button_Click_1"/>
                     
                 </Grid>
@@ -88,16 +100,7 @@
                     <TextBlock Text="Calendar" Height="96" Width="290" Margin="0,22,0,0" />
                 </phone:PivotItem.Header>
                 <!--Double line list no text wrapping-->
-                <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding Items}">
-                    <phone:LongListSelector.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Margin="0,0,0,17">
-                                    <TextBlock Text="{Binding LineOne}" TextWrapping="NoWrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                                    <TextBlock Text="{Binding LineThree}" TextWrapping="NoWrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                                </StackPanel>
-                            </DataTemplate>
-                    </phone:LongListSelector.ItemTemplate>
-                </phone:LongListSelector>
+               
             </phone:PivotItem>
         
         <!--Pivot item three-->
@@ -106,16 +109,7 @@
                     <TextBlock Text="Remainder" Height="96" Width="340" Margin="0,22,0,0" />
                               </phone:PivotItem.Header>
                 <!--Double line list no text wrapping-->
-            <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding Items}">
-                <phone:LongListSelector.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Margin="0,0,0,17">
-                            <TextBlock Text="{Binding LineOne}" TextWrapping="NoWrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                            <TextBlock Text="{Binding LineThree}" TextWrapping="NoWrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </phone:LongListSelector.ItemTemplate>
-            </phone:LongListSelector>
+            
         </phone:PivotItem>
         </phone:Pivot>
 

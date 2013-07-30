@@ -31,9 +31,9 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="Gird1" Grid.Row="1" Margin="12,120,12,360" Tap="Gird1_Tap">
-            <TextBlock Text="{Binding Linetwo}" TextWrapping="Wrap"  Foreground="Black" Margin="0,0,0,150" />
-            <TextBlock Text="{Binding Linethree}" TextWrapping="Wrap"  Foreground="Black" Margin="0,60,0,90"/>
-            <TextBlock Text="{Binding Lineseven}" TextWrapping="Wrap"  Foreground="Black" Margin="0,150,0,10"/>
+            <TextBlock Text="{Binding Linetwo}" TextWrapping="Wrap"  Foreground="Black" Margin="0,0,0,180" />
+            <TextBlock Text="{Binding Linethree}" TextWrapping="Wrap"  Foreground="Black" Margin="0,40,0,150"/>
+            <TextBlock Text="{Binding Lineseven}" TextWrapping="Wrap"  Foreground="Black" Margin="0,70,0,100"/>
             
         </Grid>
     </Grid>

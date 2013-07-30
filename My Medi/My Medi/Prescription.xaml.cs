@@ -29,7 +29,8 @@ namespace My_Medi
             }
             base.OnNavigatedTo(e);
 
-
+            //(App.Current as App).userid = App.ViewModel.Items[index].Lineone;
+            App.userid1 = App.ViewModel.Items[index].Lineone;
 
         }
 

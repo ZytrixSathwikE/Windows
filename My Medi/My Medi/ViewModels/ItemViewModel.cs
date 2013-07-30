@@ -90,6 +90,13 @@ namespace My_Medi.ViewModels
 
         public string Lineseven { get; set; }
 
+        public string Lineeight { get; set; }
+
+        public string Linenine { get; set; }
+
+        public string Lineten { get; set; }
+
+
         //public override string ToString()
         //{
         //    return Linethree.ToShortDateString() + " " + Lineseven.ToShortTimeString();

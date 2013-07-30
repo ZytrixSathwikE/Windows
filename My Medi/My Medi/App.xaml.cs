@@ -16,6 +16,11 @@ namespace My_Medi
     {
         private static MainViewModel viewModel = null;
 
+        //public int userid { get; set; }
+
+        //public internal int user ;
+        public static int userid1;
+
         /// <summary>
         /// A static ViewModel used by the views to bind against.
         /// </summary>

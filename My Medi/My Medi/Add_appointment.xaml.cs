@@ -36,9 +36,7 @@ namespace My_Medi
                 DoctorName = watermarkTextBox.Text,
                 Date = datepick.ValueString,
                 Time = timepick.ValueString
-
-                
-            };
+             };
 
             await conn.InsertAsync(person);
 

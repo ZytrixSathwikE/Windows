@@ -17,11 +17,11 @@ namespace My_Medi
 
         public string Time { get; set; }
 
-        public string Prescription { get; set; }
+        //public string Prescription { get; set; }
 
-        public string Image { get; set; }
+        //public string Image { get; set; }
 
-        public string Audio { get; set; }
+        //public string Audio { get; set; }
 
         //public override string ToString()
         //{

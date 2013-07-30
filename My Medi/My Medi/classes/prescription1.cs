@@ -10,9 +10,16 @@ namespace My_Medi
     {
 
         [PrimaryKey, AutoIncrement]
-        public int PID { get; set; }
+        public int ID { get; set; }
+        public string Temperature { get; set; }
+        public string Bp { get; set; }
+        public string symptoms { get; set; }
+        public string description { get; set; }
+        public string imagepath { get; set; }
+        public string audiopath { get; set; }
+        public int user_id { get; set; }
 
-
+        //[ForeginKey (PersonID),REFERENCES People(Id) ON DELETE CASCADE]
         //public string DoctorName { get; set; }
         //public string DoctorName { get; set; }
         //public string DoctorName { get; set; }

@@ -82,7 +82,7 @@
                                 <StackPanel Margin="0,0,0,17" >
                                     <TextBlock Text="{Binding Linetwo}" TextWrapping="Wrap"  Foreground="Black" />
                                     <TextBlock Text="{Binding Linethree}" TextWrapping="Wrap"  Margin="12,-6,12,0" Foreground="Black" />
-                                    <TextBlock Text="{Binding Lineseven}" TextWrapping="Wrap"  Margin="22,-6,12,0" Foreground="Black" />
+                                    <TextBlock Text="{Binding LineFour}" TextWrapping="Wrap"  Margin="22,-6,12,0" Foreground="Black" />
                                     <!-- <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>-->
                                 </StackPanel>
                             </DataTemplate>

@@ -102,20 +102,20 @@ namespace My_Medi.ViewModels
             this.IsDataLoaded = true;
         }
 
-        public async void LoadDatatoprescription1()
-        {
-            SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
+        //public async void LoadDatatoprescription1()
+        //{
+        //    SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
 
-            var querypre = conn.Table<prescription1>();
-            var resultpre = await querypre.ToListAsync();
-            //AllWords = (App.Current as App).db.SelectObservableCollection<Person>("Select * from ALLWORDS");
-            foreach (var prescription in resultpre)
-            {
-                //this.Items.Add(new ItemViewModel() { Lineone = appointment.ID });
-                this.details.Add(new ItemViewModel() { LineFive = prescription.Temperature, Linesix = prescription.Bp, Lineseven = prescription.symptoms, Lineeight = prescription.description });
-            }
-            this.IsDataLoaded = true;
-        }
+        //    var querypre = conn.Table<prescription1>();
+        //    var resultpre = await querypre.ToListAsync();
+        //    //AllWords = (App.Current as App).db.SelectObservableCollection<Person>("Select * from ALLWORDS");
+        //    foreach (var prescription in resultpre)
+        //    {
+        //        //this.Items.Add(new ItemViewModel() { Lineone = appointment.ID });
+        //        this.details.Add(new ItemViewModel() { LineFive = prescription.Temperature, Linesix = prescription.Bp, Lineseven = prescription.symptoms, Lineeight = prescription.description });
+        //    }
+        //    this.IsDataLoaded = true;
+        //}
 
 
         public event PropertyChangedEventHandler PropertyChanged;

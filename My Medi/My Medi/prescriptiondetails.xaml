@@ -32,17 +32,19 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel"  Grid.Row="1" Margin="12,0,12,0">
-            <!--<TextBox HorizontalAlignment="Left" Height="72" Margin="170,84,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="286" Foreground="Black" BorderBrush="#cb202d"/>-->
-            <!--<TextBlock Text="{Binding Linetwo}" TextWrapping="Wrap"  Foreground="Black" Margin="0,20,0,650" />
-            <TextBlock Text="{Binding Linethree}" TextWrapping="Wrap"  Foreground="Black" Margin="0,40,0,630" />
-            <TextBlock Text="{Binding Linefour}" TextWrapping="Wrap"  Foreground="Black" Margin="0,60,0,610" />-->
-            <my1:WatermarkTextBox Name="watermarkTextBox" Height="80" Margin="10,79,10,532" WatermarkText="Temperature. . . . . " HorizontalAlignment="Left" Width="446" BorderBrush="#cb202d" />
-            <my1:WatermarkTextBox Name="watermarkTextBox1" Height="80" Margin="10,139,10,432" WatermarkText="Bp . . . . . . " HorizontalAlignment="Left" Width="446" BorderBrush="#cb202d" />
-            <my1:WatermarkTextBox Name="watermarkTextBox2" Height="80" Margin="10,199,10,332" WatermarkText="symptoms . . . . . ." HorizontalAlignment="Left" Width="446" BorderBrush="#cb202d" />
-            <my1:WatermarkTextBox Name="watermarkTextBox3" Height="230" Margin="10,319,10,147" WatermarkText="description. . . . . .  . . .  . . . " HorizontalAlignment="Left" Width="446" BorderBrush="#cb202d" />
-            <Button x:Name="btnOK" Content="Submit" Margin="10,540,0,67" Click="btnOK_Click" BorderBrush="#cb202d" Foreground="Black"/>
-            
+            <StackPanel Orientation="Vertical">
+            <!--<TextBox HorizontalAlignment="Left" Height="72" Margin="170,84,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="286" Foreground="Black" BorderBrush="#cb202d"/>--> 
+            <TextBlock Text="{Binding Linetwo}" TextWrapping="Wrap"  Foreground="Black" FontSize="26" />
+            <TextBlock Text="{Binding Linethree}" TextWrapping="Wrap"  Foreground="Black" FontSize="24" />
+            <TextBlock Text="{Binding LineFour}" TextWrapping="Wrap"  Foreground="Black"  FontSize="24"/>
+            <TextBlock Text="{Binding LineFive}" TextWrapping="Wrap"  Foreground="Black"  FontSize="24" />
+            <TextBlock Text="{Binding Linesix}" TextWrapping="Wrap"  Foreground="Black"   FontSize="24"/>
+            <TextBlock Text="{Binding Lineseven}" TextWrapping="Wrap"  Foreground="Black" FontSize="24" />
+            <TextBlock Text="{Binding Lineeight}" TextWrapping="Wrap"  Foreground="Black" FontSize="24"/>
+            </StackPanel>
         </Grid>
+
+
     </Grid>
 
 </phone:PhoneApplicationPage>

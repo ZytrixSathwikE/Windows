@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     xmlns:my1="clr-namespace:System.Windows.Controls;assembly=WindowsPhoneWatermarkTextBoxControl"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -30,11 +31,18 @@
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="Gird1" Grid.Row="1" Margin="12,120,12,360" Tap="Gird1_Tap">
-            <TextBlock Text="{Binding Linetwo}" TextWrapping="Wrap"  Foreground="Black" Margin="0,0,0,180" />
-            <TextBlock Text="{Binding Linethree}" TextWrapping="Wrap"  Foreground="Black" Margin="0,40,0,150"/>
-            <TextBlock Text="{Binding Lineseven}" TextWrapping="Wrap"  Foreground="Black" Margin="0,70,0,100"/>
+        <Grid x:Name="Gird1" Grid.Row="1" Margin="12,20,12,570" Tap="Gird1_Tap">
+            <TextBlock Text="{Binding Linetwo}" TextWrapping="Wrap"  Foreground="Black" Margin="0,0,0,80" />
+            <TextBlock Text="{Binding Linethree}" TextWrapping="Wrap"  Foreground="Black" Margin="0,40,0,40"/>
+            <TextBlock Text="{Binding LineFour}" TextWrapping="Wrap"  Foreground="Black" Margin="0,70,0,0"/>
             
+        </Grid>
+        <Grid x:Name="Gird2" Grid.Row="2" Margin="12,140,12,0">
+            <my1:WatermarkTextBox Name="watermarkTextBox" Height="80" Margin="10,0,10,482" WatermarkText="Temperature. . . . . " HorizontalAlignment="Left" Width="446" BorderBrush="#cb202d" />
+            <my1:WatermarkTextBox Name="watermarkTextBox1" Height="80" Margin="10,90,10,380" WatermarkText="BP. . . . . " HorizontalAlignment="Left" Width="446" BorderBrush="#cb202d" />
+            <my1:WatermarkTextBox Name="watermarkTextBox2" Height="80" Margin="10,180,10,296" WatermarkText="Symtoms. . . . . " HorizontalAlignment="Left" Width="446" BorderBrush="#cb202d" />
+            <my1:WatermarkTextBox Name="watermarkTextBox3" Height="180" Margin="10,270,10,106" WatermarkText="Description. . . . . " HorizontalAlignment="Left" Width="446" BorderBrush="#cb202d" />
+            <Button x:Name="btnOK" Content="Submit" Margin="10,440,0,47" Click="btnOK_Click" BorderBrush="#cb202d" Foreground="Black"/>
         </Grid>
     </Grid>
 

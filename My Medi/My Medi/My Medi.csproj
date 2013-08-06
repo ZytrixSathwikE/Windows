@@ -104,7 +104,6 @@
     <Compile Include="Prescription.xaml.cs">
       <DependentUpon>Prescription.xaml</DependentUpon>
     </Compile>
-    <Compile Include="classes\prescription1.cs" />
     <Compile Include="prescriptiondetails.xaml.cs">
       <DependentUpon>prescriptiondetails.xaml</DependentUpon>
     </Compile>
@@ -162,6 +161,7 @@
     </Content>
     <Content Include="Assets\background.png" />
     <Content Include="Assets\background1.png" />
+    <Content Include="Assets\Mackenzie_M.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -65,6 +65,8 @@ namespace My_Medi
         {
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
+
+
     
     }
 

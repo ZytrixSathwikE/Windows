@@ -66,7 +66,7 @@ namespace My_Medi
         {
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
             await conn.CreateTableAsync<Person>();
-            await conn.CreateTableAsync<prescription1>();
+            //await conn.CreateTableAsync<prescription1>();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -77,11 +77,27 @@ namespace My_Medi
             
         }
 
-        private void FirstListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //private void FirstListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    NavigationService.Navigate(new Uri("/Prescription.xaml?selectedItem=" + FirstListBox.SelectedIndex, UriKind.Relative));
+        //    FirstListBox.SelectedIndex = -1;
+        //}
+
+        private void StackPanel_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Prescription.xaml?selectedItem=" + FirstListBox.SelectedIndex, UriKind.Relative));
             FirstListBox.SelectedIndex = -1;
         }
+
+        private void Image_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/prescriptiondetails.xaml?selectedItem=" + FirstListBox.SelectedIndex, UriKind.Relative));
+            FirstListBox.SelectedIndex = -1;
+
+        }
+
+       
+
 
 
        

@@ -17,6 +17,18 @@ namespace My_Medi
 
         public string Time { get; set; }
 
+        public string Temperature { get; set; }
+
+        public string Bp { get; set; }
+
+        public string symptoms { get; set; }
+
+        public string description { get; set; }
+
+        public string imagepath { get; set; }
+
+        public string audiopath { get; set; }
+
         //public string Prescription { get; set; }
 
         //public string Image { get; set; }

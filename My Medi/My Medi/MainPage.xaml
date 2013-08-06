@@ -76,13 +76,18 @@
                         </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>-->
-                    <ListBox x:Name="FirstListBox"  ItemsSource="{Binding Items}" Grid.Row="1" Height="306" VerticalAlignment="Bottom" SelectionChanged="FirstListBox_SelectionChanged" >
+                    <ListBox x:Name="FirstListBox"  ItemsSource="{Binding Items}" Grid.Row="1" Height="360" VerticalAlignment="Bottom" >
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Margin="0,0,0,17" >
-                                    <TextBlock Text="{Binding Linetwo}" TextWrapping="Wrap"  Foreground="Black" />
-                                    <TextBlock Text="{Binding Linethree}" TextWrapping="Wrap"  Margin="12,-6,12,0" Foreground="Black" />
-                                    <TextBlock Text="{Binding LineFour}" TextWrapping="Wrap"  Margin="22,-6,12,0" Foreground="Black" />
+                                
+                                <StackPanel Margin="0,0,0,17"  Orientation="Horizontal" >
+
+                                    <StackPanel Orientation="Vertical" Width="350" Tap="StackPanel_Tap">
+                                    <TextBlock Text="{Binding Linetwo}" TextWrapping="Wrap" FontSize="24" Margin="10,0,0,0" Foreground="Black" />
+                                        <TextBlock Text="{Binding Linethree}" TextWrapping="Wrap" FontSize="22" Margin="10,0,0,0" Foreground="Black" />
+                                        <TextBlock Text="{Binding LineFour}" TextWrapping="Wrap" FontSize="22" Margin="10,0,0,0" Foreground="Black" />
+                                    </StackPanel>
+                                    <Image  Source="/Assets/Mackenzie_M.png" Height="100" Width="100" Tap="Image_Tap"/>
                                     <!-- <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>-->
                                 </StackPanel>
                             </DataTemplate>

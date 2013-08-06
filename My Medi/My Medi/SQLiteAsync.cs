@@ -366,6 +366,16 @@ namespace SQLite
 				}
 			});
 		}
+
+        //internal object Where(Func<T, bool> func)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        internal object Where(Func<My_Medi.Person, bool> func)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 	public class CreateTablesResult

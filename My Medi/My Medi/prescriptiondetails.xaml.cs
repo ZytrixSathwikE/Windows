@@ -20,22 +20,20 @@ namespace My_Medi
             InitializeComponent();
         }
 
-        private async void btnOK_Click(object sender, RoutedEventArgs e)
+        int index = 0;
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
-            SQLiteAsyncConnection conn = new SQLiteAsyncConnection(Path.Combine(ApplicationData.Current.LocalFolder.Path, "people.db"), true);
 
-            prescription1 prescription1 = new prescription1
+            string selectedIndex = "";
+            if (NavigationContext.QueryString.TryGetValue("selectedItem", out selectedIndex))
             {
-               Temperature=watermarkTextBox.Text,
-               Bp=watermarkTextBox1.Text,
-               symptoms=watermarkTextBox2.Text,
-               description=watermarkTextBox3.Text,
-               user_id=App.userid1
-             };
+                index = int.Parse(selectedIndex);
+                DataContext = App.ViewModel.Items[index];
+            }
+            base.OnNavigatedTo(e);
+                    
 
-            await conn.InsertAsync(prescription1);
         }
-
-
+       
     }
 }
